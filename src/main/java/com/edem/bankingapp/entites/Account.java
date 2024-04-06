@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.ZonedDateTime;
+
 @Entity
 @Table(name = "accounts")
 @Getter
@@ -19,6 +21,16 @@ public class Account {
 
     @Column(name = "account_holder_name")
     private String accountHolderName;
+
     private double balance;
 
+    private ZonedDateTime createdAt;
+    private AccountType accountType;
+
+    public Account(Long id, String accountHolderName, double balance, AccountType accountType) {
+        this.id = id;
+        this.accountType = accountType;
+        this.accountHolderName =   accountHolderName;
+        this.balance = balance;
+    }
 }
